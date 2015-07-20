@@ -1,0 +1,280 @@
+html {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  font-family: Arial; }
+
+body {
+  height: 100%;
+  width: 100%; }
+
+a {
+  text-decoration: none; }
+
+nav {
+  display: inline-block; }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+h1 {
+  margin-top: 27px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif; }
+
+.wrapper {
+  float: left;
+  width: 70%;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+  background-color: white; }
+
+.wrapper__sidebar--left {
+  font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  background-color: #656565;
+  height: 100%;
+  position: absolute; }
+  .wrapper__sidebar--left ul {
+    display: block;
+    margin-top: 40px; }
+  .wrapper__sidebar--left li a {
+    font-size: 0.8125rem;
+    display: block;
+    padding: 18px 25px;
+    color: white; }
+    .wrapper__sidebar--left li a.selected {
+      background-color: #f16c1e; }
+    .wrapper__sidebar--left li a:hover:not(.selected) {
+      -webkit-transition: background-color 0.2s ease-in-out;
+      -moz-transition: background-color 0.2s ease-in-out;
+      -ms-transition: background-color 0.2s ease-in-out;
+      -o-transition: background-color 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
+      background-color: #5d5d5d; }
+
+.dodaj-rejestr {
+  display: block;
+  margin: 17px auto 0 auto;
+  background-color: #f16c1e;
+  width: 160px;
+  text-align: center;
+  padding: 18px 1px;
+  color: white;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+  .dodaj-rejestr:hover {
+    background-color: #ff6e1e; }
+  .dodaj-rejestr i {
+    font-size: 0.8125rem;
+    position: relative;
+    margin-right: 0.2rem; }
+
+.options {
+  font-size: 0.875rem;
+  margin-top: 20px;
+  position: absolute;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  border-radius: 12px;
+  border: 1px #c0c0c0 solid;
+  padding: 10px; }
+  .options i {
+    margin-right: 5px; }
+
+.wyszukaj {
+  padding-right: 30px;
+  color: #656565;
+  right: 20px;
+  background: url("../img/lupa.png") no-repeat;
+  background-size: 20px;
+  background-position: right 7px center; }
+
+.dodaj-wpis {
+  left: 320px;
+  font-weight: bold;
+  color: #656565; }
+  .dodaj-wpis i {
+    color: #53bd18; }
+  .dodaj-wpis:hover {
+    background-color: #f6f6f6;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.usun-wszystkie {
+  left: 480px;
+  font-weight: bold;
+  color: #656565; }
+  .usun-wszystkie i {
+    font-size: 0.9375rem;
+    color: #d02a2a; }
+  .usun-wszystkie:hover {
+    background-color: #f6f6f6;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.container {
+  top: 120px;
+  left: 200px;
+  height: calc(100% - 120px);
+  width: calc(100% - 200px);
+  overflow: auto;
+  position: relative; }
+  .container tr:hover td:not(.quick-options) {
+    background-color: #f16c1e;
+    color: white; }
+
+table {
+  font-family: Arial;
+  font-size: 0.875rem;
+  color: #656565;
+  position: relative;
+  left: 20px;
+  border: none;
+  cursor: pointer; }
+  table i {
+    margin-left: 3px; }
+  table th {
+    border-bottom: 1px #c4c4c4 solid; }
+    table th:hover {
+      color: #858585; }
+  table th, table td {
+    padding: 11px 26px 11px 10px; }
+
+.quick-options {
+  padding: 0;
+  cursor: auto; }
+  .quick-options .fa-trash-o {
+    color: #d02a2a;
+    margin-right: 20px; }
+  .quick-options i {
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    height: 17px;
+    width: 17px;
+    vertical-align: top; }
+    .quick-options i:hover {
+      font-size: 0.9375rem; }
+
+.clean {
+  border: none; }
+
+.termin-hot {
+  color: #d02a2a; }
+
+.termin-warm {
+  color: #f16c1e; }
+
+.termin-green {
+  color: #53bd18; }
+
+.sidebar--right {
+  width: 30%;
+  float: right;
+  background-color: #f2f2f2;
+  height: 100%;
+  position: relative;
+  right: 0;
+  font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+  font-size: 0.875rem;
+  color: #656565; }
+  .sidebar--right .ws-popover-opener {
+    background-color: white !important; }
+  .sidebar--right td .checked-value {
+    background-color: #f16c1e !important; }
+  .sidebar--right td button:hover {
+    background-color: #f16c1e !important; }
+  .sidebar--right th {
+    border: none; }
+
+.lista {
+  margin: 67px auto 0 auto;
+  width: 80%;
+  position: relative; }
+  .lista li {
+    white-space: nowrap; }
+  .lista input {
+    box-sizing: border-box; }
+
+input[type="date"]::-webkit-inner-spin-button {
+  height: 17px !important; }
+
+input[type="date"]::-webkit-datetime-edit {
+  height: 16px; }
+
+.lista__klucz {
+  width: 50%;
+  float: left;
+  text-align: right; }
+  .lista__klucz li {
+    padding: 15px;
+    margin-top: 2px;
+    vertical-align: middle; }
+
+.lista__dane {
+  width: 50%;
+  height: 100%;
+  float: right; }
+  .lista__dane li {
+    padding: 9px;
+    margin-top: 2px; }
+    .lista__dane li input {
+      padding: 5px;
+      border: 1px #c0c0c0 solid;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      border-radius: 10px; }
+
+.full-width {
+  width: 100%;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -ms-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out; }
+
+.show {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out; }
+
+.hide {
+  width: 0px;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+/*# sourceMappingURL=style.css.map */

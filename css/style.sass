@@ -54,7 +54,6 @@ h1
 
 .wrapper
   float: left
-  width: 70%
   height: 100%
   max-height: 100%
   position: relative
@@ -126,10 +125,15 @@ h1
 .wyszukaj
   padding-right: 30px
   color: $sec
-  right: 20px
+  //right: 20px
+  left: 840px
+  //top: 100px
+  width: 250px
   background: url("../img/lupa.png") no-repeat
   background-size: 20px
   background-position: right 7px center
+  border: 1px #e4e4e4 solid
+
 
 .dodaj-wpis
   left: 320px
@@ -143,8 +147,16 @@ h1
     //background-color: #e7fddb
     +transition(all)
 
+.zaznacz-wszystkie
+  left: 460px
+  font-weight: bold
+  color: $sec
+  &:hover
+    //color: white
+    background-color: #f6f6f6
+
 .usun-wszystkie
-  left: 480px
+  left: 650px
   font-weight: bold
   color: $sec
   i
@@ -159,10 +171,10 @@ h1
 
 // wrapper-tabelka ************************************************************
 .container
-  top: 120px
+  top: 140px
   left: 200px
   //background-color: #9ce1ae
-  height: calc(100% - 120px)
+  height: calc(100% - 140px)
   width: calc(100% - 200px)
   overflow: auto
   position: relative
@@ -189,6 +201,9 @@ table
 
   th,td
     padding: 11px 26px 11px 10px
+  th,td,thead
+    //display: inline-block
+    white-space: nowrap
 
 
 .quick-options
@@ -291,18 +306,19 @@ input[type="date"]::-webkit-datetime-edit
 .full-width
   width: 100%
   +transition(width)
-
+.part-width
+  width: 70%
+  +transition(width)
 
 .show
-  opacity: 1
-  +transition(opacity)
+  width: 30%
+  +transition(width)
 
 
 .hide
   width: 0px
-  opacity:  0
   overflow: hidden
-  +transition(all)
+  +transition(width)
 
 .clearfix:after
   content: "."

@@ -18,6 +18,7 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+    <script src="js/multifilter.js"></script>
 </head>
 <body>
 
@@ -35,14 +36,17 @@
     webshim.polyfill('forms forms-ext');
 
 </script>
-<section class="wrapper">
+<section class="wrapper full-width">
 
-    <a href="" class="options dodaj-wpis"><i class="fa fa-plus"></i>Dodaj wpis</a>
-    <a href="" class="options usun-wszystkie"><i class="fa fa-trash-o"></i>Usuń zaznaczone</a>
-    <input class="options wyszukaj" type="text" placeholder="Wyszukaj">
+    <a href="#" class="options dodaj-wpis"><i class="fa fa-plus"></i>Dodaj wpis</a>
+    <a href="#" class="options zaznacz-wszystkie"><i class="fa fa-sort-amount-asc"></i>Zaznacz wszystko</a>
+    <a href="#" class="options usun-wszystkie"><i class="fa fa-trash-o"></i>Usuń zaznaczone</a>
 
+    <input type="search" data-table="order-table" class="options wyszukaj light-table-filter" type="search" placeholder="Wyszukaj">
+<!--    <input type="search" data-table="order-table" class="options wyszukaj2 light-table-filter" type="search" placeholder="Wyszukaj">-->
+<!--    <input class="options wyszukaj filter" name="email" type="search" placeholder="Wyszukaj" data-col='Marka'>-->
     <div class="container">
-    <table>
+    <table id="main-table" class="order-table table">
         <thead>
         <tr>
             <th class="clean"></th>
@@ -54,8 +58,8 @@
             <th>Termin 2<i class="fa fa-sort"></i></th>
         </tr>
         </thead>
-        <tfoot>
-        <tr>
+        <tbody id="asd">
+        <tr id="tr">
             <td class="quick-options"><i class="fa fa-trash-o"></i><i class="fa fa-square-o"></i></td>
             <td>Sum</td>
             <td>Sum</td>
@@ -64,8 +68,7 @@
             <td class="termin-hot">07-07-2015</td>
             <td class="termin-warm">07-07-2015</td>
         </tr>
-        </tfoot>
-        <tbody>
+
         <tr>
             <td class="quick-options"><i class="fa fa-trash-o"></i><i class="fa fa-square-o"></i></td>
             <td>January</td>
@@ -88,15 +91,15 @@
     </table>
     </div>
     <div class="wrapper__sidebar--left">
-        <a href="index.php" class="dodaj-rejestr">
+        <a href="#" class="dodaj-rejestr">
             <i class="fa fa-plus"></i>Dodaj rejestr
         </a>
         <ul>
-            <li class="typ-rejestru"><a href="index.php">Rejestr samochodów</a></li>
-            <li class="typ-rejestru"><a class="selected" href="index.php">Rejestr polis NWK i WiU 2015</a></li>
-            <li class="typ-rejestru"><a href="index.php">Rejestr wadium 2015</a></li>
-            <li class="typ-rejestru"><a href="index.php">Rejestr samochodów</a></li>
-            <li class="typ-rejestru"><a href="index.php">Rejestr polis NWK i WiU 2015</a></li>
+            <li class="typ-rejestru"><a href="#">Rejestr samochodów</a></li>
+            <li class="typ-rejestru"><a class="selected" href="#">Rejestr polis NWK i WiU 2015</a></li>
+            <li class="typ-rejestru"><a href="#">Rejestr wadium 2015</a></li>
+            <li class="typ-rejestru"><a href="#">Rejestr samochodów</a></li>
+            <li class="typ-rejestru"><a href="#">Rejestr polis NWK i WiU 2015</a></li>
         </ul>
     </div>
 
@@ -104,7 +107,7 @@
 </section>
 
 
-<section class="sidebar--right">
+<section class="sidebar--right hide">
     <h1>DANE</h1>
     <div class="lista">
         <div class="lista__klucz">

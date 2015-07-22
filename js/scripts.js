@@ -8,7 +8,7 @@ $("a").click(function(){
 var html = document.getElementById("asd").innerHTML;
 var html2 = "";
 
-for (i = 0; i < 3000; i++) {
+for (i = 0; i < 100; i++) {
     html2 += html;
 }
 document.getElementById("asd").innerHTML = html2;
@@ -25,45 +25,39 @@ document.getElementById("asd").innerHTML = html2;
 
         function _onInputEvent(e) {
             _input = e.target;
-            var inputVal;
-            //inputVal = _input.value.split(/[ ,]+/).filter(Boolean);
-            //for (var i=0; i<inputVal.length; i++) {
-            //    //console.log(inputVal);
-            //}
-            //console.log(_input.value);
-            var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
-            //for (var i=0; i<inputVal.length; i++) {
-                Arr.forEach.call(tables, function(table) {
-                    Arr.forEach.call(table.tBodies, function(tbody) {
-                        Arr.forEach.call(tbody.rows, _filter);
-                    });
-                });
-            //}
 
+            var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+            Arr.forEach.call(tables, function(table) {
+                Arr.forEach.call(table.tBodies, function(tbody) {
+                    Arr.forEach.call(tbody.rows, _filter);
+                });
+            });
         }
 
-
-
         function _filter(row) {
-            var val;
-            var text = row.textContent.toLowerCase();
-            val = _input.value.toLowerCase();
-            var inputVal;
-            //inputVal = _input.value.toLowerCase().split(/[ ,]+/).filter(Boolean);
-            //inputVal.unshift("");
+            var inputVal = _input.value.toLowerCase().split(/[ ]+/).filter(Boolean);
+            inputVal.unshift("");
+            //console.log();
+            //console.log(row.textContent.toLowerCase() + "........");
+            var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+
+
             console.log(inputVal);
 
-            //for (var i=0; i<inputVal.length; i++) {
-                //console.log(val);
-                //console.log(inputVal[i]);
-                row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-            //}
+            for(var i=0; i<inputVal.length; i++){
+                if(text.indexOf(inputVal[i]) === -1){
+                    row.style.display = 'none';
+                    break;
+                }else{
+                    row.style.display = 'table-row';
+                }
+            }
+
         }
 
         return {
             init: function() {
                 var inputs = document.getElementsByClassName('light-table-filter');
-                //console.log(inputs);
                 Arr.forEach.call(inputs, function(input) {
                     input.oninput = _onInputEvent;
                 });

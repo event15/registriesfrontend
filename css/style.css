@@ -146,8 +146,7 @@ h1 {
   overflow: auto;
   position: relative; }
   .container tr:hover td:not(.quick-options) {
-    background-color: #f16c1e;
-    color: white; }
+    background-color: #f6f6f6; }
 
 table {
   font-family: Arial;

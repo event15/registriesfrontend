@@ -1,20 +1,49 @@
-$("a").click(function(){
-    $(".sidebar--right").toggleClass("hide");
-    $(".sidebar--right").toggleClass("show");
-    $(".wrapper").toggleClass("full-width");
-    $(".wrapper").toggleClass("part-width");
-});
+// Test wielkości tabeli *****************************************************************
 
 var html = document.getElementById("asd").innerHTML;
 var html2 = "";
 
-for (i = 0; i < 100; i++) {
+for (i = 0; i < 2; i++) {
     html2 += html;
 }
 document.getElementById("asd").innerHTML = html2;
 
+// Test wielkości tabeli *****************************************************************
 
 
+
+
+// Eventy *****************************************************************
+
+$("a").click(function(){
+    $(".sidebar--right").toggleClass("hide show");
+    $(".wrapper").toggleClass( "part-width full-width");
+});
+
+$("th").click(function(){
+    var $rodz = $(this).siblings();
+        $("i", $rodz).removeClass().addClass("fa fa-sort");
+    if ( $("i", this).hasClass("fa-sort")){
+        $("i", this).toggleClass("fa-sort-asc fa-sort");
+    }else{
+        $("i", this).toggleClass("fa-sort-desc fa-sort-asc");
+    }
+});
+$("i.checkbox").click(function(){
+    //console.log(this.nodeName);
+    $(this).toggleClass("fa-square-o fa-check-square-o");
+
+});
+
+$(".zaznacz-wszystkie").click(function(){
+    console.log(this.nodeName);
+});
+// Eventy *****************************************************************
+
+
+
+
+// Filtrowanie *****************************************************************
 
 (function(document) {
     'use strict';
@@ -37,12 +66,9 @@ document.getElementById("asd").innerHTML = html2;
         function _filter(row) {
             var inputVal = _input.value.toLowerCase().split(/[ ]+/).filter(Boolean);
             inputVal.unshift("");
-            //console.log();
-            //console.log(row.textContent.toLowerCase() + "........");
             var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
 
 
-            console.log(inputVal);
 
             for(var i=0; i<inputVal.length; i++){
                 if(text.indexOf(inputVal[i]) === -1){
@@ -72,12 +98,5 @@ document.getElementById("asd").innerHTML = html2;
     });
 
 })(document);
+// Filtrowanie *****************************************************************
 
-
-//$(document).ready(function() {
-//    $('.filter').multifilter(
-//        {
-//            'target': $('#main-table')
-//        }
-//    );
-//});

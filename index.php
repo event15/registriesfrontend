@@ -18,29 +18,16 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-    <script src="js/multifilter.js"></script>
-    <script src="js/tablesort.js"></script>
-    <script src="js/tablesort.numeric.js"></script>
-    <script src="js/tablesort.date.js"></script>
+<!--    <script src="js/multifilter.js"></script>-->
+    <script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
 
 
 </head>
 <body>
 
 
-<script>
-    webshim.setOptions("forms-ext", {
-        "date": {
-            "startView": 2,
-            "openOnFocus": true,
-            "calculateWidth": false
-        }
-    });
-    $.webshims.activeLang('pl');
-    //start polyfilling
-    webshim.polyfill('forms forms-ext');
 
-</script>
+
 <section class="wrapper full-width">
 
     <a href="#" class="options dodaj-wpis"><i class="fa fa-plus"></i>Dodaj wpis</a>
@@ -51,48 +38,60 @@
 <!--    <input type="search" data-table="order-table" class="options wyszukaj2 light-table-filter" type="search" placeholder="Wyszukaj">-->
 <!--    <input class="options wyszukaj filter" name="email" type="search" placeholder="Wyszukaj" data-col='Marka'>-->
     <div class="container">
-    <table id="main-table" class="order-table table">
-        <thead>
+    <table id="sorter" class="order-table table">
+    <thead>
         <tr>
             <th class="clean"></th>
             <th>Marka<i class="fa fa-sort"></i></th>
             <th>Model<i class="fa fa-sort"></i></th>
             <th>Numer rejestracyjny<i class="fa fa-sort"></i></th>
             <th>Ubezpieczyciel<i class="fa fa-sort"></i></th>
-            <th>Termin 1<i class="fa fa-sort"></i></th>
-            <th>Termin 2<i class="fa fa-sort"></i></th>
+            <th class="termin1">Termin 1<i class="fa fa-sort"></i></th>
+            <th class="termin2">Termin 2<i class="fa fa-sort"></i></th>
         </tr>
-        </thead>
-        <tbody id="asd">
-        <tr id="tr">
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="fa fa-square-o"></i></td>
+    </thead>
+    <tbody id="asd">
+        <tr>
+            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>Sum</td>
             <td>Sum</td>
             <td>Sum</td>
             <td>Sum</td>
-            <td class="termin-hot">07-07-2015</td>
-            <td class="termin-warm">07-07-2015</td>
+            <td class="termin-hot">01-07-2000</td>
+            <td class="termin-warm">345</td>
         </tr>
 
         <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="fa fa-square-o"></i></td>
+            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>January</td>
             <td>January</td>
             <td>January</td>
             <td>January</td>
-            <td class="termin-green">07-07-2015</td>
-            <td class="termin-warm">07-07-2015</td>
+            <td class="termin-green">06-01-2012</td>
+            <td class="termin-warm">5678</td>
         </tr>
         <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="fa fa-square-o"></i></td>
+            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>February</td>
             <td>February</td>
             <td>February</td>
             <td>February</td>
-            <td class="termin-green">07-07-2015</td>
-            <td class="termin-green">07-07-2015</td>
+            <td class="termin-green">08-07-2015</td>
+            <td class="termin-green">12</td>
         </tr>
-        </tbody>
+
+        <tr>
+            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
+            <td>June</td>
+            <td>June</td>
+            <td>June</td>
+            <td>June</td>
+
+            <td class="termin-green">10-10-2000</td>
+            <td class="termin-warm">567567</td>
+        </tr>
+    </tbody>
+
     </table>
     </div>
     <div class="wrapper__sidebar--left">
@@ -138,9 +137,37 @@
     </div>
 </section>
 
-<script src="js/scripts.js"></script>
+
 <script>
-    new Tablesort(document.getElementById('main-table'));
+
+</script>
+<script src="js/scripts.js"></script>
+
+
+<script>
+    webshim.setOptions("forms-ext", {
+        "date": {
+            "startView": 2,
+            "openOnFocus": true,
+            "calculateWidth": false
+        }
+    });
+    $.webshims.activeLang('pl');
+    webshim.polyfill('forms forms-ext');
+
+</script>
+<script type="text/javascript">
+
+$(function(){
+    $("#sorter").tablesorter({
+        sortInitialOrder: "desc",
+        headers : {
+            '.termin1' : { sortInitialOrder: "asc" },
+            '.termin2'   : { sortInitialOrder: "asc" }
+        }
+    });
+});
+
 </script>
 </body>
 </html>

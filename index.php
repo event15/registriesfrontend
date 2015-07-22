@@ -19,6 +19,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
     <script src="js/multifilter.js"></script>
+    <script src="js/tablesort.js"></script>
+    <script src="js/tablesort.numeric.js"></script>
+    <script src="js/tablesort.date.js"></script>
+
+
 </head>
 <body>
 
@@ -134,5 +139,8 @@
 </section>
 
 <script src="js/scripts.js"></script>
+<script>
+    new Tablesort(document.getElementById('main-table'));
+</script>
 </body>
 </html>

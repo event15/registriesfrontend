@@ -31,7 +31,7 @@
 <section class="wrapper full-width">
 
     <a href="#" class="options dodaj-wpis"><i class="fa fa-plus"></i>Dodaj wpis</a>
-    <a href="#" class="options zaznacz-wszystkie"><i class="fa fa-sort-amount-asc"></i>Zaznacz wszystko</a>
+    <a href="#" class="options zaznacz-wszystkie"><i class="fa fa-sort-amount-asc"></i>Zaznacz widoczne</a>
     <a href="#" class="options usun-wszystkie"><i class="fa fa-trash-o"></i>Usuń zaznaczone</a>
 
     <input type="search" data-table="order-table" class="options wyszukaj light-table-filter" type="search" placeholder="Wyszukaj">
@@ -51,8 +51,8 @@
         </tr>
     </thead>
     <tbody id="asd">
-        <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
+        <!--<tr data-id="1">
+            <td class="quick-options"><i class="fa fa-trash-o usun-jeden"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>Sum</td>
             <td>Sum</td>
             <td>Sum</td>
@@ -61,8 +61,8 @@
             <td class="termin-warm">345</td>
         </tr>
 
-        <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
+        <tr data-id="2">
+            <td class="quick-options"><i class="fa fa-trash-o usun-jeden"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>January</td>
             <td>January</td>
             <td>January</td>
@@ -70,8 +70,8 @@
             <td class="termin-green">06-01-2012</td>
             <td class="termin-warm">5678</td>
         </tr>
-        <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
+        <tr data-id="3">
+            <td class="quick-options"><i class="fa fa-trash-o usun-jeden"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>February</td>
             <td>February</td>
             <td>February</td>
@@ -80,8 +80,8 @@
             <td class="termin-green">12</td>
         </tr>
 
-        <tr>
-            <td class="quick-options"><i class="fa fa-trash-o"></i><i class="checkbox fa fa-square-o"></i></td>
+        <tr data-id="4">
+            <td class="quick-options"><i class="fa fa-trash-o usun-jeden"></i><i class="checkbox fa fa-square-o"></i></td>
             <td>June</td>
             <td>June</td>
             <td>June</td>
@@ -89,7 +89,7 @@
 
             <td class="termin-green">10-10-2000</td>
             <td class="termin-warm">567567</td>
-        </tr>
+        </tr>-->
     </tbody>
 
     </table>
@@ -158,15 +158,6 @@
 </script>
 <script type="text/javascript">
 
-$(function(){
-    $("#sorter").tablesorter({
-        sortInitialOrder: "desc",
-        headers : {
-            '.termin1' : { sortInitialOrder: "asc" },
-            '.termin2'   : { sortInitialOrder: "asc" }
-        }
-    });
-});
 
 </script>
 </body>

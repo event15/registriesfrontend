@@ -1,5 +1,6 @@
-// Test wielkości tabeli *****************************************************************
+// </Test wielkości tabeli> *****************************************************************
 
+/*
 var html = document.getElementById("asd").innerHTML;
 var html2 = "";
 
@@ -7,18 +8,69 @@ for (i = 0; i < 2; i++) {
     html2 += html;
 }
 document.getElementById("asd").innerHTML = html2;
+*/
 
-// Test wielkości tabeli *****************************************************************
+// </Test wielkości tabeli> *****************************************************************
 
 
+// <Eventy> *****************************************************************
+
+        //$("a").click(function(){
+        //    $(".sidebar--right").toggleClass("hide show");
+        //    $(".wrapper").toggleClass( "part-width full-width");
+        //});
+/*
+
+www.json-generator.com
+[
+    '{{repeat(5, 200)}}',
+    {
+        id_Car: '{{index()}}',
+        id_CarRegister: '{{index()}}',
+        Brand: '{{city()}}',
+        Model: '{{firstName("male")}}',
+        RegistrationNumber: '{{phone("xxx-xxx")}}',
+        Insurer: '{{company().toUpperCase()}}',
+        Deadline1: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
+        Deadline2: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
+        Others: '{{lorem(3)}}'
+    }
+
+]*/
+$("li.typ-rejestru").on('click', function(){
+
+    $.ajax({
+        method: "GET",
+        dataType: "json",
+        url: "http://www.json-generator.com/api/json/get/csYBYJrGWa?indent=2"
+
+        }).done(function( data) {
+            var tabelka = "";
+            $.each(data, function( key, val ) {
+                tabelka = "<tr data-id=" + val.id_Car + " role=\"row\">";
+                tabelka += "<td class=\"quick-options\"><i class=\"fa fa-trash-o usun-jeden\"></i><i class=\"checkbox fa fa-square-o\"></i></td>";
+                tabelka += "<td>" + val.Brand  + "</td>";
+                tabelka += "<td>" + val.Model  + "</td>";
+                tabelka += "<td>" + val.RegistrationNumber  + "</td>";
+                tabelka += "<td>" + val.Insurer  + "</td>";
+                tabelka += "<td>" + val.Deadline1 + "</td>";
+                tabelka += "<td>" + val.Deadline2  + "</td>";
+                tabelka += "</tr>";
+                tabelka = $.parseHTML(tabelka);
+                $("#asd").append(tabelka);
+            });
+
+        sort();
+
+        });
 
 
-// Eventy *****************************************************************
-
-$("a").click(function(){
-    $(".sidebar--right").toggleClass("hide show");
-    $(".wrapper").toggleClass( "part-width full-width");
 });
+
+
+
+
+// <ikony sortowanie>*********************
 
 $("th").click(function(){
     var $rodz = $(this).siblings();
@@ -29,21 +81,59 @@ $("th").click(function(){
         $("i", this).toggleClass("fa-sort-desc fa-sort-asc");
     }
 });
-$("i.checkbox").click(function(){
-    //console.log(this.nodeName);
-    $(this).toggleClass("fa-square-o fa-check-square-o");
+// </ikony sortowanie>*********************
 
-});
 
+
+// <ikony checkboxy>*********************
+    $('table').on('click', 'i.checkbox' ,function() {
+        $(this).toggleClass("fa-square-o fa-check-square-o");
+    });
+// </ikony checkboxy>*********************
+
+
+
+
+// <usuwanie wielu>*********************
 $(".zaznacz-wszystkie").click(function(){
-    console.log(this.nodeName);
+
+    $( "table .checkbox" ).each(function() {
+        $(this).removeClass();
+        $(this).filter(":hidden").addClass("fa fa-square-o");
+        $(this).filter(":visible").addClass("checkbox fa fa-check-square-o");
+    });
 });
-// Eventy *****************************************************************
+// </usuwanie wielu>*********************
+
+
+// <usuwanie jednego>*********************
+$('table').on('click', 'i.usun-jeden' ,function(){
+    var usunWpis = parseFloat($(this).parents("tr").attr('data-id'));
+    console.log(usunWpis);
+});
+// </usuwanie jednego>*********************
+
+
+// <usuwanie wielu>*********************
+$("a.usun-wszystkie").click(function(){
+    var usunWpisyArray = [];
+    $( ".fa-check-square-o" ).each(function() {
+        $wpis = parseFloat($(this).parents("tr").attr('data-id'));
+        usunWpisyArray.push($wpis);
+        return usunWpisyArray;
+    });
+    if(usunWpisyArray.length!=0){
+    console.log(usunWpisyArray);
+    }
+});
+// </usuwanie wielu>*********************
+
+// </Eventy> *****************************************************************
 
 
 
 
-// Filtrowanie *****************************************************************
+// <Filtrowanie> *****************************************************************
 
 (function(document) {
     'use strict';
@@ -98,5 +188,22 @@ $(".zaznacz-wszystkie").click(function(){
     });
 
 })(document);
-// Filtrowanie *****************************************************************
+// </Filtrowanie> *****************************************************************
 
+
+// <sortowanie> *****************************************************************
+// musi być wywałane po każdym załadowaniu nowej tabelki
+
+function sort(){
+    $(function(){
+        $("#sorter").tablesorter({
+            sortInitialOrder: "desc",
+            headers : {
+                '.termin1' : { sortInitialOrder: "asc" },
+                '.termin2'   : { sortInitialOrder: "asc" }
+            }
+        });
+    });
+}
+
+// </sortowanie> *****************************************************************

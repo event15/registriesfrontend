@@ -92,6 +92,17 @@ h1 {
   .options i {
     margin-right: 5px; }
 
+.button-top {
+  cursor: pointer;
+  font-weight: bold; }
+  .button-top:hover {
+    background-color: #f6f6f6;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
 .wyszukaj {
   padding-right: 30px;
   color: #656565;
@@ -104,39 +115,20 @@ h1 {
 
 .dodaj-wpis {
   left: 320px;
-  font-weight: bold;
   color: #656565; }
   .dodaj-wpis i {
     color: #53bd18; }
-  .dodaj-wpis:hover {
-    background-color: #f6f6f6;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out; }
 
 .zaznacz-wszystkie {
   left: 460px;
-  font-weight: bold;
   color: #656565; }
-  .zaznacz-wszystkie:hover {
-    background-color: #f6f6f6; }
 
 .usun-wszystkie {
   left: 650px;
-  font-weight: bold;
   color: #656565; }
   .usun-wszystkie i {
     font-size: 0.9375rem;
     color: #d02a2a; }
-  .usun-wszystkie:hover {
-    background-color: #f6f6f6;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out; }
 
 .container {
   top: 140px;
@@ -268,6 +260,12 @@ input[type="date"]::-webkit-datetime-edit {
   -ms-transition: width 0.2s ease-in-out;
   -o-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out; }
+
+.hidden {
+  display: none; }
+
+.shown {
+  display: inline-block; }
 
 .show {
   width: 30%;

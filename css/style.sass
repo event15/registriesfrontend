@@ -121,6 +121,12 @@ h1
   i
     margin-right: 5px
 
+.button-top
+  cursor: pointer
+  font-weight: bold
+  &:hover
+    background-color: #f6f6f6
+    +transition(all)
 
 .wyszukaj
   padding-right: 30px
@@ -137,37 +143,23 @@ h1
 
 .dodaj-wpis
   left: 320px
-  font-weight: bold
   color: $sec
   i
     color: $green
-  &:hover
-    //color: white
-    background-color: #f6f6f6
-    //background-color: #e7fddb
-    +transition(all)
+
 
 .zaznacz-wszystkie
   left: 460px
-  font-weight: bold
   color: $sec
-  &:hover
-    //color: white
-    background-color: #f6f6f6
+
 
 .usun-wszystkie
   left: 650px
-  font-weight: bold
   color: $sec
   i
     +font-size(15)
     color: $hot
-    //font-weight: 600
-  &:hover
-    //color: white
-    background-color: #f6f6f6
-    //background-color: #ffefef
-    +transition(all)
+
 
 // wrapper-tabelka ************************************************************
 .container
@@ -310,11 +302,16 @@ input[type="date"]::-webkit-datetime-edit
   width: 70%
   +transition(width)
 
+
+
+.hidden
+  display: none
+.shown
+  display: inline-block
+
 .show
   width: 30%
   +transition(width)
-
-
 .hide
   width: 0px
   overflow: hidden

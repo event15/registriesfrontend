@@ -37,42 +37,26 @@ www.json-generator.com
     }
 
 ]*/
-$("li.typ-rejestru").on('click', function(){
-
-    $.ajax({
-        method: "GET",
-        dataType: "json",
-        url: "http://www.json-generator.com/api/json/get/csYBYJrGWa?indent=2"
-
-        }).done(function( data) {
-            var tabelka = "";
-            $.each(data, function( key, val ) {
-                tabelka = "<tr data-id=" + val.id_Car + " role=\"row\">";
-                tabelka += "<td class=\"quick-options\"><i class=\"fa fa-trash-o usun-jeden\"></i><i class=\"checkbox fa fa-square-o\"></i></td>";
-                tabelka += "<td>" + val.Brand  + "</td>";
-                tabelka += "<td>" + val.Model  + "</td>";
-                tabelka += "<td>" + val.RegistrationNumber  + "</td>";
-                tabelka += "<td>" + val.Insurer  + "</td>";
-                tabelka += "<td>" + val.Deadline1 + "</td>";
-                tabelka += "<td>" + val.Deadline2  + "</td>";
-                tabelka += "</tr>";
-                tabelka = $.parseHTML(tabelka);
-                $("#asd").append(tabelka);
-            });
-
-        sort();
-
-        });
+$(".wrapper__sidebar--left").on('click', 'li.typ-rejestru', function(){
+    //console.log("asd");
+    $(".wrapper__sidebar--left li a").removeClass();
+    $("a", this).addClass("selected");
 
 
 });
 
+// <styl daty>***************************
+// porównuje dane daty z deadlinem i nadaje im kolorki - hot, warm, green
+function checkDate(date, deadline){
 
+}
+// </styl daty>***************************
 
 
 // <ikony sortowanie>*********************
 
-$("th").click(function(){
+$(document).on('click', 'th' ,function(){
+
     var $rodz = $(this).siblings();
         $("i", $rodz).removeClass().addClass("fa fa-sort");
     if ( $("i", this).hasClass("fa-sort")){
@@ -85,17 +69,17 @@ $("th").click(function(){
 
 
 
-// <ikony checkboxy>*********************
-    $('table').on('click', 'i.checkbox' ,function() {
+// <ikony checkboxy - zaznacz jeden>*********************
+    $('.container').on('click', 'i.checkbox' ,function() {
         $(this).toggleClass("fa-square-o fa-check-square-o");
     });
-// </ikony checkboxy>*********************
+// </ikony checkboxy - zaznacz jeden>*********************
 
 
 
 
-// <usuwanie wielu>*********************
-$(".zaznacz-wszystkie").click(function(){
+// ikony checkboxy - zaznacz widoczne>*********************
+$('.wrapper').on('click', '.zaznacz-wszystkie' ,function() {
 
     $( "table .checkbox" ).each(function() {
         $(this).removeClass();
@@ -103,11 +87,11 @@ $(".zaznacz-wszystkie").click(function(){
         $(this).filter(":visible").addClass("checkbox fa fa-check-square-o");
     });
 });
-// </usuwanie wielu>*********************
+// </ikony checkboxy - zaznacz widoczne>*********************
 
 
 // <usuwanie jednego>*********************
-$('table').on('click', 'i.usun-jeden' ,function(){
+$('.wrapper').on('click', 'i.usun-jeden' ,function(){
     var usunWpis = parseFloat($(this).parents("tr").attr('data-id'));
     console.log(usunWpis);
 });
@@ -115,7 +99,7 @@ $('table').on('click', 'i.usun-jeden' ,function(){
 
 
 // <usuwanie wielu>*********************
-$("a.usun-wszystkie").click(function(){
+$("a.usun-wszystkie").click    (function(){
     var usunWpisyArray = [];
     $( ".fa-check-square-o" ).each(function() {
         $wpis = parseFloat($(this).parents("tr").attr('data-id'));
@@ -194,16 +178,153 @@ $("a.usun-wszystkie").click(function(){
 // <sortowanie> *****************************************************************
 // musi być wywałane po każdym załadowaniu nowej tabelki
 
-function sort(){
-    $(function(){
-        $("#sorter").tablesorter({
-            sortInitialOrder: "desc",
-            headers : {
-                '.termin1' : { sortInitialOrder: "asc" },
-                '.termin2'   : { sortInitialOrder: "asc" }
-            }
-        });
-    });
-}
+//function sort(){
+//    $(function(){
+//        $("#sorter").tablesorter({
+//            sortInitialOrder: "desc",
+//            headers : {
+//                '.termin1' : { sortInitialOrder: "asc" },
+//                '.termin2'   : { sortInitialOrder: "asc" }
+//            }
+//        });
+//    });
+//}
 
 // </sortowanie> *****************************************************************
+
+
+
+
+/*
+function typRejestru(){
+    $(".options").addClass("shown");
+
+
+    $.ajax({
+        method: "GET",
+        dataType: "json",
+        url: "http://www.json-generator.com/api/json/get/csYBYJrGWa?indent=2",
+        data: 1
+    }).done(function(data) {
+        var tabelka = "<table id=\"sorter\" class=\"order-table table\"> <thead> <tr> <th class=\"clean\"></th> <th>Marka<i class=\"sorticon fa fa-sort\"></i></th> <th>Model<i class=\"fa fa-sort\"></i></th> <th>Numer rejestracyjny<i class=\"fa fa-sort\"></i></th> <th>Ubezpieczyciel<i class=\"fa fa-sort\"></i></th> <th class=\"termin1\">Termin 1<i class=\"fa fa-sort\"></i></th> <th class=\"termin2\">Termin 2<i class=\"fa fa-sort\"></i></th> </tr> </thead> <tbody>";
+        $.each(data, function( key, val ) {
+            //var date = Date.parseDate("03 03 2013", "d-m-Y");
+            //console.log(Date.parse("March 21, 2012"));
+
+            tabelka += "<tr data-id=" + val.id_Car + " role=\"row\">";
+            tabelka += "<td class=\"quick-options\"><i class=\"fa fa-trash-o usun-jeden\"></i><i class=\"checkbox fa fa-square-o\"></i></td>";
+            tabelka += "<td>" + val.Brand  + "</td>";
+            tabelka += "<td>" + val.Model  + "</td>";
+            tabelka += "<td>" + val.RegistrationNumber + "</td>";
+            tabelka += "<td>" + val.Insurer  + "</td>";
+            tabelka += "<td>" + val.Deadline1 + "</td>";
+            tabelka += "<td>" + val.Deadline2  + "</td>";
+            tabelka += "</tr>";
+
+
+        });
+        tabelka = $.parseHTML(tabelka);
+        $(".container").html(tabelka);
+        sort();
+
+    });
+
+};
+*/
+
+
+
+//var rejestrSamochody = Backbone.Collection.extend({
+//    url: 'http://www.json-generator.com/api/json/get/csYBYJrGWa?indent=2'
+//    }
+//
+//);
+//
+//
+//
+//var wpisyCollectionView = Backbone.View.extend({
+//    el : '.container',
+//    my_template : _.template($( "script.template" ).html()),
+//    initialize: function () {
+//        this.render();
+//    },
+//    render: function() {
+//
+//        var _thisView = this;
+//
+//        this.collection = new rejestrSamochody();
+//
+//
+//        var html = this.my_template(this.collection);
+//
+//
+//        this.collection.fetch().done(function () {
+//            _thisView.$el.html(_thisView.my_template(_thisView.collection));
+//        });
+//
+//
+//    }
+//});
+
+
+
+
+//
+//var rejestrSamochody = Backbone.Collection.extend({
+//    defaults : {
+//        query : "unknown"
+//        },
+//
+//    initialize: function( options ) {
+//        //console.log(options.query.typRejestru);
+//        this.query = options.query.typRejestru;
+//    },
+//
+//        url: function(){
+//            return 'http://www.json-generator.com/api/json/get/csYBYJrGWa?indent=2'
+//        }
+//
+//
+//
+//
+//});
+//
+//
+//
+//
+//var wpisyCollectionView = Backbone.View.extend({
+//    el : '.container',
+//    my_template : _.template($( "script.template" ).html()),
+//    initialize: function (options) {
+//        var that = this;
+//
+//
+//        this.options = options;
+//
+//        var options = {query: options};
+//
+//
+//
+//        var onDataHandler = function(collection) {
+//            that.render();
+//        }
+//        this.collection = new rejestrSamochody(options);
+//        this.collection.fetch({success : onDataHandler})
+//    },
+//    render: function(){
+//
+//        var data = {
+//            owner: this.collection,
+//            _: _
+//        };
+//
+//        var compiledTemplate = this.my_template( data.owner );
+//
+//        this.$el.html(compiledTemplate);
+//    }
+//
+//});
+
+
+
+

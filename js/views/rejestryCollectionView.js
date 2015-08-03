@@ -3,22 +3,28 @@ define([
     'underscore',
     'backbone',
     'collections/listaRejestryCollection',
-    'text!templates/listy/listaRejestryTemplate.html',
+    'text!templates/listy/listaRejestryTemplate.html'
 ], function($, _, Backbone, listaRejestryCollection, listaRejestryTemplate){
 
 
     var rejestryCollectionView = Backbone.View.extend({
-        el : 'ul',
+
+        el : '.wrapper__sidebar--left ul',
         //my_template : _.template(listaSamochodyTemplate),
         initialize: function () {
-            var that = this;
+            //var that = this;
+            //
+            //var onDataHandler = function(collection) {
+            //
+            //    //console.log(that.collection);
+            //    that.render();
+            //
+            //}
+            //this.collection = new listaRejestryCollection();
+            //this.collection.fetch({success : onDataHandler});
 
-            var onDataHandler = function(collection) {
-                that.render();
-            }
-            this.collection = new listaRejestryCollection();
-            this.collection.fetch({success : onDataHandler})
         },
+
         render: function(){
 
 

@@ -131,33 +131,51 @@ h1 {
     color: #d02a2a; }
 
 .container {
-  top: 140px;
+  display: inline-block;
+  padding-right: 100px;
+  top: 100px;
   left: 200px;
   height: calc(100% - 140px);
-  width: calc(100% - 200px);
-  overflow: auto;
   position: relative; }
   .container tr:hover td:not(.quick-options) {
     background-color: #f6f6f6; }
 
 table {
+  table-layout: fixed;
+  overflow: auto;
   font-family: Arial;
   font-size: 0.875rem;
   color: #656565;
   position: relative;
   left: 20px;
   border: none;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 100%; }
   table i {
     margin-left: 3px; }
   table th {
     border-bottom: 1px #c4c4c4 solid; }
     table th:hover {
       color: #858585; }
+  table th:nth-child(2) {
+    padding-left: 10px; }
+  table td:nth-child(2) {
+    padding-left: 10px; }
   table th, table td {
-    padding: 11px 26px 11px 10px; }
-  table th, table td, table thead {
-    white-space: nowrap; }
+    padding-bottom: 11px;
+    padding-top: 11px;
+    min-width: 170px; }
+  table th:first-child, table td:first-child {
+    width: 100px;
+    min-width: 100px; }
+  table thead {
+    display: block;
+    text-align: left;
+    padding-right: 20px; }
+  table tbody {
+    display: block;
+    overflow: auto;
+    height: 100%; }
 
 .quick-options {
   padding: 0;
@@ -207,6 +225,8 @@ table {
     border: none; }
 
 .lista {
+  left: 10%;
+  display: inline-block;
   margin: 67px auto 0 auto;
   width: 80%;
   position: relative; }
@@ -237,13 +257,51 @@ input[type="date"]::-webkit-datetime-edit {
   .lista__dane li {
     padding: 9px;
     margin-top: 2px; }
-    .lista__dane li input {
+    .lista__dane li select {
+      background-color: #fff; }
+    .lista__dane li input, .lista__dane li select {
       padding: 5px;
       border: 1px #c0c0c0 solid;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       -ms-border-radius: 10px;
       border-radius: 10px; }
+
+.button--rej {
+  background-color: #f16c1e; }
+  .button--rej:hover {
+    background-color: #ff6e1e; }
+
+.button--def {
+  background-color: #53bd18; }
+  .button--def:hover {
+    background-color: #56cc1a; }
+
+.button--ed {
+  background-color: #BBBBBB; }
+  .button--ed:hover {
+    background-color: #c6c6c6; }
+
+.sidebar__button {
+  position: absolute;
+  bottom: 100px;
+  left: 40%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin: 100px auto 0 auto;
+  width: 160px;
+  padding: 18px 1px;
+  color: white;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer; }
+  .sidebar__button i {
+    font-size: 0.8125rem;
+    position: relative;
+    margin-right: 0.2rem; }
 
 .full-width {
   width: 100%;

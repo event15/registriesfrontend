@@ -1,0 +1,28 @@
+<table id="sorter" class="order-table table">
+    <thead>
+    <tr>
+        <th class="clean"></th>
+        <th>Marka2<i class="fa fa-sort"></i></th>
+        <th>Model2<i class="fa fa-sort"></i></th>
+        <th>Numer rejestracyjny2<i class="fa fa-sort"></i></th>
+        <th>Ubezpieczyciel2<i class="fa fa-sort"></i></th>
+        <th class="termin1">Termin 1sadasd<i class="fa fa-sort"></i></th>
+        <th class="termin2">Termin 2asdasd<i class="fa fa-sort"></i></th>
+    </tr>
+    </thead>
+    <tbody id="asd">
+    <% _.each(kolekcja.models, function(item) { %>
+    <tr data-id='<%= item.get("id_Car") %>'role="row">
+        <td class="quick-options"><i class="fa fa-trash-o usun-jeden"></i><i class="checkbox fa fa-square-o"></i></td>
+        <td><%= item.get("Brand") %></td>
+        <td><%= item.get("Model") %></td>
+        <td><%= item.get("RegistrationNumber") %></td>
+        <td><%= item.get("Insurer") %></td>
+        <td><%= item.get("Deadline1") %></td>
+        <td><%= item.get("Deadline2") %></td>
+    </tr>
+    <% }); %>
+
+    </tbody>
+
+</table>

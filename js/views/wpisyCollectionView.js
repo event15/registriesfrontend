@@ -3,10 +3,13 @@ define([
     'underscore',
     'backbone',
     'collections/listaWpisyCollection',
-    'js/collections/theadsCollection.js',
-    'text!templates/listy/listaSamochodyTemplate.html',
+    'models/tableHeadersModel',
+
+    'text!templates/listy/listaWpisySamochodyTemplate.html',
+    'text!templates/listy/listaWpisyRejestr2Template.html',
+    'text!templates/listy/listaWpisyRejestr3Template.html',
     'boilerplate'
-], function($, _, Backbone, listaWpisyCollection, theadsCollection, listaSamochodyTemplate, App){
+], function($, _, Backbone, listaWpisyCollection, tableHeadersModel, samochodyTemplate, polisyTemplate, ubezpieczeniaTemplate, App){
 
 
 var wpisyCollectionView = Backbone.View.extend({
@@ -15,32 +18,31 @@ var wpisyCollectionView = Backbone.View.extend({
     initialize: function (options) {
         var that = this;
 
-        this.options = options;
+        //this.options = options;
 
         var options = {query: options};
-
-        //console.log(options.query.typRejestru);
-        //console.log(App.theads[options.query.typRejestru]);
-
 
         var onDataHandler = function(collection) {
             that.render(options);
         }
         this.collection = new listaWpisyCollection(options);
-        this.collection.fetch({success : onDataHandler})
+        this.collection.fetch({success : onDataHandler});
     },
     render: function(options){
 
-        var theads = new theadsCollection();
-
         var data = {
             kolekcja: this.collection,
-            //thead : App[App.theads[options.query.typRejestru]],
             _: _
         };
 
+        var templates = {
+            samochody : samochodyTemplate,
+            polisy : polisyTemplate,
+            ubezpieczenia : ubezpieczeniaTemplate
+        }
 
-        var my_template = _.template(listaSamochodyTemplate);
+
+        var my_template = _.template(templates[options.query.typRejestru]);
         var compiledTemplate = my_template( data );
 
         this.$el.html(compiledTemplate);

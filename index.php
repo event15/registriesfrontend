@@ -98,7 +98,7 @@
         </table>-->
     </div>
     <div class="wrapper__sidebar--left">
-        <a href="#samochody" class="dodaj-rejestr">
+        <a href="#/dodajRejestr" class="dodaj-rejestr">
             <i class="fa fa-plus"></i>Dodaj rejestr
         </a>
         <ul>
@@ -137,7 +137,62 @@
                 <li><input type="date" value="2015-07-15"></li>
             </ul>
         </div>
+
     </div>
+    <a class="sidebar__button button--ed">Edytuj</a>
+
+
+    <!--<h1>DODAJ REJESTR</h1>
+    <div class="lista">
+        <div class="lista__klucz">
+            <ul>
+                <li>Nazwa</li>
+                <li>Typ</li>
+            </ul>
+        </div>
+        <div class="lista__dane">
+            <ul>
+                <li><input type="text" value=""></li>
+                <li><select>
+                        <option>Samochody</option>
+                        <option>Ubezpieczenia Lorem Ipsum</option>
+                        <option>Polisy Krasnoludki WKS</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <a class="sidebar__button button--rej">Dodaj Rejestr</a>
+    -->
+
+
+
+    <!--<h1>DODAJ WPIS</h1>
+    <div class="lista">
+        <div class="lista__klucz">
+            <ul>
+                <li>Marka</li>
+                <li>Model</li>
+                <li>Numer rejestracyjny</li>
+                <li>Ubezpieczyciel</li>
+                <li>Termin 1</li>
+                <li>Termin 2</li>
+            </ul>
+        </div>
+        <div class="lista__dane">
+            <ul>
+                <li><input type="text" value=""></li>
+                <li><input type="text" value=""></li>
+                <li><input type="text" value=""></li>
+                <li><input type="text" value=""></li>
+                <li><input type="date" value=""></li>
+                <li><input type="date" value=""></li>
+            </ul>
+        </div>
+    </div>
+    <a class="sidebar__button button--def">Dodaj Wpis</a>-->
+
+
 </section>
 
 

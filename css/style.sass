@@ -163,12 +163,14 @@ h1
 
 // wrapper-tabelka ************************************************************
 .container
-  top: 140px
+  display: inline-block
+  padding-right: 100px
+  top: 100px
   left: 200px
   //background-color: #9ce1ae
   height: calc(100% - 140px)
-  width: calc(100% - 200px)
-  overflow: auto
+  //width: calc(100% - 200px)
+
   position: relative
   tr:hover
     & td:not(.quick-options)
@@ -176,6 +178,9 @@ h1
       //color: white
 
 table
+  table-layout: fixed
+  //min-width: 1100px
+  overflow: auto
   font-family: Arial
   +font-size(14)
   color: $sec
@@ -184,18 +189,42 @@ table
   //width: 1220px
   border: none
   cursor: pointer
+  height: 100%
   i
     margin-left: 3px
   th
+
     border-bottom: 1px #c4c4c4 solid
     i
     &:hover
       color: #858585
-
+  th:nth-child(2)
+    padding-left: 10px
+  td:nth-child(2)
+    padding-left: 10px
   th,td
-    padding: 11px 26px 11px 10px
+
+    padding-bottom: 11px
+    padding-top: 11px
+    min-width: 170px
+  th:first-child, td:first-child
+    width: 100px
+    min-width: 100px
+  th,td
+    //padding: 11px 26px 11px 10px
   th,td,thead
-    white-space: nowrap
+    //white-space: nowrap
+  thead
+    display: block
+    //background-color: red
+    text-align: left
+    padding-right: 20px
+  tbody
+
+    //margin-top: 10px
+    display: block
+    overflow: auto
+    height: 100%
 
 
 .quick-options
@@ -249,6 +278,8 @@ table
   th
     border: none
 .lista
+  left: 10%
+  display: inline-block
   margin: 67px auto 0 auto
   width: 80%
   position: relative
@@ -286,13 +317,52 @@ input[type="date"]::-webkit-datetime-edit
     padding: 9px
     //background-color: green
     margin-top: 2px
-    input
+    select
+      background-color: #fff
+    input, select
       padding: 5px
 
       border: 1px #c0c0c0 solid
       +border-radius(10px)
 
+.button--rej
+  background-color: $prim
+  &:hover
+    background-color: #ff6e1e
 
+.button--def
+  background-color: $green
+  &:hover
+    background-color: #56cc1a
+
+.button--ed
+  background-color: #BBBBBB
+  &:hover
+    background-color: #c6c6c6
+
+.sidebar__button
+  position: absolute
+  bottom: 100px
+  left: 40%
+  text-align: center
+  display: block
+  margin: 0 auto
+  margin: 100px auto 0 auto
+
+  width: 160px
+  padding: 18px 1px
+  color: white
+  white-space: nowrap
+  +font-size(13)
+  letter-spacing: 1px
+  text-transform: uppercase
+  cursor: pointer
+
+  i
+    +font-size(13)
+    position: relative
+    //top: 0.1rem
+    margin-right: 0.2rem
 
 //general **************************************************************
 .full-width

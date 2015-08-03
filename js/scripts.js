@@ -1,57 +1,68 @@
-// </Test wielkości tabeli> *****************************************************************
-
 /*
-var html = document.getElementById("asd").innerHTML;
-var html2 = "";
 
-for (i = 0; i < 2; i++) {
-    html2 += html;
-}
-document.getElementById("asd").innerHTML = html2;
-*/
+ www.json-generator.com
+ [
+ '{{repeat(5, 200)}}',
+ {
+ id_Car: '{{index()}}',
+ id_CarRegister: '{{index()}}',
+ Brand: '{{city()}}',
+ Model: '{{firstName("male")}}',
+ RegistrationNumber: '{{phone("xxx-xxx")}}',
+ Insurer: '{{company().toUpperCase()}}',
+ Deadline1: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
+ Deadline2: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
+ Others: '{{lorem(3)}}'
+ }
 
-// </Test wielkości tabeli> *****************************************************************
-
+ ]*/
+//$( document ).ready(function() {
+//// Change the selector if needed
+//    var $table = $('table'),
+//        $bodyCells = $table.find('tbody tr:first').children(),
+//        colWidth;
+//    console.log($bodyCells);
+//// Get the tbody columns width array
+//    colWidth = $bodyCells.map(function () {
+//
+//
+//        return $(this).width();
+//    }).get();
+//
+//// Set the width of thead columns
+//    $table.find('thead tr').children().each(function (i, v) {
+//        $(v).width(colWidth[i]);
+//
+//    });
+//});
 
 // <Eventy> *****************************************************************
 
-        //$("a").click(function(){
-        //    $(".sidebar--right").toggleClass("hide show");
-        //    $(".wrapper").toggleClass( "part-width full-width");
-        //});
-/*
 
-www.json-generator.com
-[
-    '{{repeat(5, 200)}}',
-    {
-        id_Car: '{{index()}}',
-        id_CarRegister: '{{index()}}',
-        Brand: '{{city()}}',
-        Model: '{{firstName("male")}}',
-        RegistrationNumber: '{{phone("xxx-xxx")}}',
-        Insurer: '{{company().toUpperCase()}}',
-        Deadline1: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
-        Deadline2: '{{date(new Date(2014, 0, 1), new Date(), "dd-mm-YYYY")}}',
-        Others: '{{lorem(3)}}'
+$(document).on('click', 'a.dodaj-wpis, a.dodaj-rejestr, .container td', function(){
+    if( $(".sidebar--right").hasClass( "hide")){
+        $(".sidebar--right").removeClass("hide").addClass("show");
+        $(".wrapper").removeClass("full-width").addClass("part-width");
     }
-
-]*/
-$(".wrapper__sidebar--left").on('click', 'li.typ-rejestru', function(){
-    //console.log("asd");
-    $(".wrapper__sidebar--left li a").removeClass();
-    $("a", this).addClass("selected");
-
-
 });
 
-// <styl daty>***************************
-// porównuje dane daty z deadlinem i nadaje im kolorki - hot, warm, green
-function checkDate(date, deadline){
 
-}
-// </styl daty>***************************
+$(document).click(function(e) {
+    if ( $(e.target).closest('.sidebar--right, a.dodaj-wpis, a.dodaj-rejestr, .container td:not(.quick-options)').length === 0 ) {
+        if( $(".sidebar--right").hasClass( "show")){
+            $(".sidebar--right").removeClass("show").addClass("hide");
+            $(".wrapper").removeClass("part-width").addClass("full-width");
+        }
+    }
+});
 
+
+
+
+$(".wrapper__sidebar--left").on('click', 'li.typ-rejestru', function(){
+    $(".wrapper__sidebar--left li a").removeClass();
+    $("a", this).addClass("selected");
+});
 
 // <ikony sortowanie>*********************
 
@@ -83,7 +94,7 @@ $('.wrapper').on('click', '.zaznacz-wszystkie' ,function() {
 
     $( "table .checkbox" ).each(function() {
         $(this).removeClass();
-        $(this).filter(":hidden").addClass("fa fa-square-o");
+        $(this).filter(":hidden").addClass("checkbox fa fa-square-o");
         $(this).filter(":visible").addClass("checkbox fa fa-check-square-o");
     });
 });

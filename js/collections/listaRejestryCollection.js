@@ -17,7 +17,7 @@ define([
         },
 
         url: function(){
-            return 'http://www.json-generator.com/api/json/get/bTCAimIahu?indent=2'
+            return 'http://www.json-generator.com/api/json/get/bGStqEvWRe?indent=2'
         }
 
 

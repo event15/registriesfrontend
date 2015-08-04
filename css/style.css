@@ -131,6 +131,7 @@ h1 {
     color: #d02a2a; }
 
 .container {
+  overflow: auto;
   display: inline-block;
   padding-right: 100px;
   top: 100px;
@@ -140,44 +141,35 @@ h1 {
   .container tr:hover td:not(.quick-options) {
     background-color: #f6f6f6; }
 
+.pagination {
+  display: inline-block; }
+
 table {
-  table-layout: fixed;
-  overflow: auto;
   font-family: Arial;
   font-size: 0.875rem;
   color: #656565;
   position: relative;
   left: 20px;
   border: none;
-  cursor: pointer;
-  height: 100%; }
+  cursor: pointer; }
   table i {
     margin-left: 3px; }
   table th {
+    z-index: 10000;
     border-bottom: 1px #c4c4c4 solid; }
     table th:hover {
       color: #858585; }
-  table th:nth-child(2) {
-    padding-left: 10px; }
-  table td:nth-child(2) {
-    padding-left: 10px; }
   table th, table td {
-    padding-bottom: 11px;
-    padding-top: 11px;
-    min-width: 170px; }
-  table th:first-child, table td:first-child {
-    width: 100px;
-    min-width: 100px; }
+    padding: 11px 26px 11px 10px; }
+  table th, table thead {
+    white-space: nowrap; }
   table thead {
-    display: block;
-    text-align: left;
     padding-right: 20px; }
   table tbody {
-    display: block;
-    overflow: auto;
-    height: 100%; }
+    overflow: auto; }
 
 .quick-options {
+  white-space: nowrap;
   padding: 0;
   cursor: auto; }
   .quick-options .fa-trash-o {

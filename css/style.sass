@@ -163,6 +163,7 @@ h1
 
 // wrapper-tabelka ************************************************************
 .container
+  overflow: auto
   display: inline-block
   padding-right: 100px
   top: 100px
@@ -177,10 +178,14 @@ h1
       background-color: #f6f6f6
       //color: white
 
+
+.pagination
+  display: inline-block
+
 table
-  table-layout: fixed
+  //table-layout: fixed
   //min-width: 1100px
-  overflow: auto
+
   font-family: Arial
   +font-size(14)
   color: $sec
@@ -189,45 +194,45 @@ table
   //width: 1220px
   border: none
   cursor: pointer
-  height: 100%
+  //height: 100%
   i
     margin-left: 3px
   th
-
+    z-index: 10000
     border-bottom: 1px #c4c4c4 solid
     i
     &:hover
       color: #858585
-  th:nth-child(2)
-    padding-left: 10px
-  td:nth-child(2)
-    padding-left: 10px
+  //th:nth-child(2)
+  //  padding-left: 10px
+  //td:nth-child(2)
+  //  padding-left: 10px
+  //th,td
+  //
+  //  padding-bottom: 11px
+  //  padding-top: 11px
+  //  min-width: 170px
+  //th:first-child, td:first-child
+  //  width: 100px
+  //  min-width: 100px
   th,td
+    padding: 11px 26px 11px 10px
+  th,thead
+    white-space: nowrap
+  tr
 
-    padding-bottom: 11px
-    padding-top: 11px
-    min-width: 170px
-  th:first-child, td:first-child
-    width: 100px
-    min-width: 100px
-  th,td
-    //padding: 11px 26px 11px 10px
-  th,td,thead
-    //white-space: nowrap
   thead
-    display: block
-    //background-color: red
-    text-align: left
+
+    //text-align: left
     padding-right: 20px
   tbody
 
-    //margin-top: 10px
-    display: block
     overflow: auto
-    height: 100%
+    //height: 100%
 
 
 .quick-options
+  white-space: nowrap
   padding: 0
   cursor: auto
   .fa-trash-o

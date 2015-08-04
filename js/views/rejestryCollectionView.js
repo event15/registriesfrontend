@@ -26,8 +26,6 @@ define([
         },
 
         render: function(){
-
-
             var data = {
                 kolekcja: this.collection,
                 _: _

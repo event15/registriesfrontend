@@ -4,22 +4,29 @@ define([
     'backbone',
     'views/wpisyCollectionView',
     'views/rejestryCollectionView',
+    'views/formView',
     'collections/listaRejestryCollection',
     'models/tableHeadersModel',
     'libs/jquery/jquery.tablesorter.min'
-], function($, _, Backbone, wpisyCollectionView, rejestryCollectionView, listaRejestryCollection, tableHeadersModel){
+], function($, _, Backbone, wpisyCollectionView, rejestryCollectionView, formView, listaRejestryCollection, tableHeadersModel){
 
     var Router = Backbone.Router.extend({
         routes: {
             ''                      : 'home',
             'dodajRejestr'                 : 'dodajRejestr',
             ':typRejestru'          : 'typRejestru',
-            ':typRejestru/:page'    : 'id',
-            ':typRejestru/dodajWpis/'           : 'dodajWpis',
+            ':typRejestru/:page'    : 'idWpisu',
+            ':typRejestru/dodajWpis'           : 'dodajWpis',
             '*actions'              : 'defaultAction'
+        },
+
+        events: function (typRejestru) {
+            //$('td').click(function () {
+            //    e.preventDefault();
+            //    console.log("asd");
+            //    //SearchApp.navigate(e.target.pathname, true);
+            //});
         }
-
-
 
     });
 
@@ -28,10 +35,14 @@ define([
 
         var app_router = new Router;
 
-        var homeView = new rejestryCollectionView(); // View wyœwietla wszystkie rejestry
+
+
+
+
+        var homeView = new rejestryCollectionView(); // View wyï¿½wietla wszystkie rejestry
 
         var rejestryTypeModel = Backbone.Model.extend();
-        var rejestryType  = new rejestryTypeModel; // Model zawieraj¹cy typy rejestrów
+        var rejestryType  = new rejestryTypeModel; // Model zawierajï¿½cy typy rejestrï¿½w
 
         homeView.collection = new listaRejestryCollection();
         homeView.collection.fetch().done(function(){
@@ -48,20 +59,43 @@ define([
 
 
         app_router.on('route:typRejestru', function(nazwaRejestru){
-            //console.log(nazwaRejestru.replace(/_/g, " "));
-            //console.log(rejestryType[nazwaRejestru.replace(/_/g, " ")]);
+
+
+            $('.container').on('click', 'tbody tr' ,function(){
+                app_router.navigate("/" + nazwaRejestru + "/" + $(this).attr("data-id"), true);
+            });
+
             var showLista = new wpisyCollectionView({
                 nazwaRejestru: nazwaRejestru,
                 typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
 
-            }); // View wyœwietla wszystkie wpisy dla danego rejestru
+            });
 
         });
 
         app_router.on('route:dodajRejestr', function(){
 
-            //console.log("asd");
+            var formView1 = new formView({
 
+            });
+
+        });
+       app_router.on('route:idWpisu', function(nazwaRejestru, idWpisu){
+           var showLista = new wpisyCollectionView({
+               nazwaRejestru: nazwaRejestru,
+               typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
+
+           });
+           var formView1 = new formView({
+               typRejestru : nazwaRejestru.replace(/_/g, " "),
+               id : idWpisu
+           });
+
+        });
+       app_router.on('route:dodajWpis', function(){
+           var formView1 = new formView({
+
+           });
 
         });
 

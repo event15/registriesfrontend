@@ -18,10 +18,11 @@
     <![endif]-->
 <!--    <script src="js/libs/underscore/underscore-min.js" type="text/javascript"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
     <script src="js/libs/multifilter/multifilter.js"></script>
-<!--    <script src="js/libs/jquery/jquery.tablesorter.min.js" type="text/javascript"></script>-->
-<!--    <script src="js/libs/backbone/backbone-min.js" type="text/javascript"></script>-->
+    <script src="js/libs/footable/footable.js"></script>
+
  <script data-main="js/main" src="js/libs/require/require.js"></script>
 
 
@@ -32,16 +33,15 @@
 
 
 
-
 <section class="wrapper full-width">
 
     <a  class="options button-top dodaj-wpis"><i class="fa fa-plus"></i>Dodaj wpis</a>
     <a  class="options button-top zaznacz-wszystkie"><i class="fa fa-sort-amount-asc"></i>Zaznacz widoczne</a>
     <a  class="options button-top usun-wszystkie"><i class="fa fa-trash-o"></i>Usuń zaznaczone</a>
 
-    <input type="search" data-table="order-table" class="options wyszukaj light-table-filter" type="search" placeholder="Wyszukaj">
+    <input data-table="order-table" class="options wyszukaj light-table-filter" type="search" placeholder="Wyszukaj">
     <div class="container">
-        <!--<table id="sorter" class="order-table table">
+        <!--<table id="tableData" class="footable order-table table">
         <thead>
             <tr>
                 <th class="clean"></th>
@@ -96,7 +96,10 @@
         </tbody>
 
         </table>-->
+
+
     </div>
+
     <div class="wrapper__sidebar--left">
         <a href="#/dodajRejestr" class="dodaj-rejestr">
             <i class="fa fa-plus"></i>Dodaj rejestr
@@ -194,10 +197,10 @@
 
 
 </section>
-
+<div class="pagination pagination-centered hide-if-no-paging"></div>
 
 <script src="js/scripts.js"></script>
-<!--<script src="js/routes.js"></script>-->
+
 
 
 <script>

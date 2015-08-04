@@ -5,11 +5,9 @@ define([
     'collections/listaWpisyCollection',
     'models/tableHeadersModel',
 
-    'text!templates/listy/listaWpisySamochodyTemplate.html',
-    'text!templates/listy/listaWpisyRejestr2Template.html',
-    'text!templates/listy/listaWpisyRejestr3Template.html',
-    'boilerplate'
-], function($, _, Backbone, listaWpisyCollection, tableHeadersModel, samochodyTemplate, polisyTemplate, ubezpieczeniaTemplate, App){
+    'boilerplate',
+
+], function($, _, Backbone, listaWpisyCollection, tableHeadersModel, App){
 
 
 var wpisyCollectionView = Backbone.View.extend({
@@ -35,19 +33,23 @@ var wpisyCollectionView = Backbone.View.extend({
             _: _
         };
 
-        var templates = {
-            samochody : samochodyTemplate,
-            polisy : polisyTemplate,
-            ubezpieczenia : ubezpieczeniaTemplate
-        }
+        //var templates = {
+        //    samochody : samochodyTemplate,
+        //    polisy : polisyTemplate,
+        //    ubezpieczenia : ubezpieczeniaTemplate
+        //}
 
 
-        var my_template = _.template(templates[options.query.typRejestru]);
+        var my_template = _.template(App.listyTemplates[options.query.typRejestru]);
         var compiledTemplate = my_template( data );
 
         this.$el.html(compiledTemplate);
 
+
         App.sort();
+
+
+
     }
 
 });

@@ -1,13 +1,13 @@
-<table id="sorter" class="order-table table">
-    <thead>
+<table id="sorter" class="footable order-table table" data-page-navigation=".pagination"  data-filter=".wyszukaj">
+    <thead class="theader">
     <tr>
         <th class="clean"></th>
         <th>Marka2<i class="fa fa-sort"></i></th>
         <th>Model2<i class="fa fa-sort"></i></th>
         <th>Numer rejestracyjny2<i class="fa fa-sort"></i></th>
         <th>Ubezpieczyciel2<i class="fa fa-sort"></i></th>
-        <th class="termin1">Termin 1sadasd<i class="fa fa-sort"></i></th>
-        <th class="termin2">Termin 2asdasd<i class="fa fa-sort"></i></th>
+        <th data-type="numeric" class="termin1">Termin 1sadasd<i class="fa fa-sort"></i></th>
+        <th data-type="numeric" class="termin2">Termin 2asdasd<i class="fa fa-sort"></i></th>
     </tr>
     </thead>
     <tbody id="asd">
@@ -18,8 +18,8 @@
         <td><%= item.get("Model") %></td>
         <td><%= item.get("RegistrationNumber") %></td>
         <td><%= item.get("Insurer") %></td>
-        <td><%= item.get("Deadline1") %></td>
-        <td><%= item.get("Deadline2") %></td>
+        <td data-value='<%= new Date(item.get("Deadline1").split("-").reverse().join("-")).getTime() %>'><%= item.get("Deadline1") %></td>
+        <td data-value='<%= new Date(item.get("Deadline1").split("-").reverse().join("-")).getTime() %>'><%= item.get("Deadline2") %></td>
     </tr>
     <% }); %>
 

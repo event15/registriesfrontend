@@ -1,36 +1,45 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function($, _, Backbone){
+    'backbone',
+    'text!templates/formularze/formDodajRejestrTemplate.html',
+    'text!templates/formularze/formDodajWpisTemplate.html',
+    'text!templates/formularze/formEdytujWpisTemplate.html',
+    'text!templates/listy/listaWpisySamochodyTemplate.html',
+    'text!templates/listy/listaWpisyRejestr2Template.html',
+    'text!templates/listy/listaWpisyRejestr3Template.html',
+    'js/libs/footable/footable.js',
+    'js/libs/footable/footable.filter.js',
+    'js/libs/footable/footable.paginate.js',
+    'js/libs/footable/footable.sort.js'
+
+
+
+], function($, _, Backbone, dodajRejestrTemplate, dodajWpisTemplate, edytujWpisTemplate,  samochodyTemplate, polisyTemplate, ubezpieczeniaTemplate){
     var App = {
         sort : function(){
 
-            $("#sorter").tablesorter({
-                sortInitialOrder: "desc",
-                headers : {
-                    '.termin1' : { sortInitialOrder: "asc" },
-                    '.termin2'   : { sortInitialOrder: "asc" }
-                }
-            });
+            //$("#sorter")
+            //.tablesorter({
+            //    sortInitialOrder: "desc",
+            //    headers : {
+            //        '.termin1' : { sortInitialOrder: "asc" },
+            //        '.termin2'   : { sortInitialOrder: "asc" }
+            //    }
+            //});
 
-//            $( document ).ready(function() {
-//// Change the selector if needed
-//    var $table = $('table'),
-//        $bodyCells = $table.find('tbody tr:first').children(),
-//        colWidth;
-//
-//// Get the tbody columns width array
-//    colWidth = $bodyCells.map(function () {
-//        return $(this).width();
-//    }).get();
-//    console.log(colWidth);
-//// Set the width of thead columns
-//    $table.find('thead tr').children().each(function (i, v) {
-//        $(v).width(colWidth[i]);
-//
-//    });
-//});
+            $("#sorter").footable();
+
+        },
+        formTemplates : {
+            dodajRejestr : dodajRejestrTemplate,
+            dodajWpis : dodajWpisTemplate,
+            edytujWpis : edytujWpisTemplate
+        },
+        listyTemplates : {
+            samochody : samochodyTemplate,
+            polisy : polisyTemplate,
+            ubezpieczenia : ubezpieczeniaTemplate
         }
 
     }

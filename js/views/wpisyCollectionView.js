@@ -11,7 +11,7 @@ define([
 
 
 var wpisyCollectionView = Backbone.View.extend({
-    el : '.container',
+    el : '.container__table',
     //my_template : _.template(listaSamochodyTemplate),
     initialize: function (options) {
         var that = this;

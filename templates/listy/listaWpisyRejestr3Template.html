@@ -19,7 +19,7 @@
         <td><%= item.get("RegistrationNumber") %></td>
         <td><%= item.get("Insurer") %></td>
         <td data-value='<%= new Date(item.get("Deadline1").split("-").reverse().join("-")).getTime() %>'><%= item.get("Deadline1") %></td>
-        <td data-value='<%= new Date(item.get("Deadline1").split("-").reverse().join("-")).getTime() %>'><%= item.get("Deadline2") %></td>
+        <td data-value='<%= new Date(item.get("Deadline2").split("-").reverse().join("-")).getTime() %>'><%= item.get("Deadline2") %></td>
     </tr>
     <% }); %>
 

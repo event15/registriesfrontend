@@ -136,13 +136,28 @@ h1 {
   padding-right: 100px;
   top: 100px;
   left: 200px;
-  height: calc(100% - 140px);
+  height: calc(100% - 100px);
   position: relative; }
   .container tr:hover td:not(.quick-options) {
     background-color: #f6f6f6; }
 
 .pagination {
-  display: inline-block; }
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px; }
+  .pagination li {
+    font-size: 0.875rem;
+    display: inline-block; }
+    .pagination li a {
+      display: inline-block;
+      padding: 10px;
+      color: #f16c1e; }
+    .pagination li.active {
+      background-color: #f6f6f6; }
 
 table {
   font-family: Arial;
@@ -160,9 +175,12 @@ table {
     table th:hover {
       color: #858585; }
   table th, table td {
-    padding: 11px 26px 11px 10px; }
+    padding: 11px 26px 11px 10px;
+    text-align: left; }
   table th, table thead {
     white-space: nowrap; }
+  table td {
+    min-width: 100px; }
   table thead {
     padding-right: 20px; }
   table tbody {
@@ -229,9 +247,6 @@ table {
 
 input[type="date"]::-webkit-inner-spin-button {
   height: 17px !important; }
-
-input[type="date"]::-webkit-datetime-edit {
-  height: 16px; }
 
 .lista__klucz {
   width: 50%;

@@ -163,13 +163,14 @@ h1
 
 // wrapper-tabelka ************************************************************
 .container
+  //background-color: red
   overflow: auto
   display: inline-block
   padding-right: 100px
   top: 100px
   left: 200px
   //background-color: #9ce1ae
-  height: calc(100% - 140px)
+  height: calc(100% - 100px)
   //width: calc(100% - 200px)
 
   position: relative
@@ -180,7 +181,23 @@ h1
 
 
 .pagination
-  display: inline-block
+  width: 100%
+  //background-color: red
+  display: block
+  position: absolute
+  bottom: 40px
+  margin: 0 auto
+  text-align: center
+  margin-top: 40px
+  li
+    +font-size(14)
+    display: inline-block
+    a
+      display: inline-block
+      padding: 10px
+      color: $prim
+    &.active
+      background-color: #f6f6f6
 
 table
   //table-layout: fixed
@@ -217,9 +234,11 @@ table
   //  min-width: 100px
   th,td
     padding: 11px 26px 11px 10px
+    text-align: left
   th,thead
     white-space: nowrap
-  tr
+  td
+    min-width: 100px
 
   thead
 
@@ -293,11 +312,12 @@ table
 
   input
     box-sizing: border-box
+    //height: 16px
 
 input[type="date"]::-webkit-inner-spin-button
   height: 17px!important
 input[type="date"]::-webkit-datetime-edit
-  height: 16px
+
 
 
 

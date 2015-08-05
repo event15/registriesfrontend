@@ -19,13 +19,28 @@ define([
             ':typRejestru/dodajWpis'           : 'dodajWpis',
             '*actions'              : 'defaultAction'
         },
+        home : function () {
+            console.log("home");
+        },
 
-        events: function (typRejestru) {
-            //$('td').click(function () {
-            //    e.preventDefault();
-            //    console.log("asd");
-            //    //SearchApp.navigate(e.target.pathname, true);
-            //});
+
+
+        events: {
+            typRejestru : function(nazwaRejestru, rejestryType, router){
+                $(".wrapper__sidebar--left li a").removeClass();
+                $("a", $(".wrapper__sidebar--left li[data-rej=" + nazwaRejestru + "]") ).addClass("selected");
+
+                $('.container').on('click', 'tbody tr' ,function(){
+                    router.navigate("/" + nazwaRejestru + "/" + $(this).attr("data-id"), true);
+                });
+                //console.log();
+                router.showLista = new wpisyCollectionView({
+                    nazwaRejestru: nazwaRejestru,
+                    typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
+
+                });
+            }
+
         }
 
     });
@@ -34,8 +49,6 @@ define([
     var initialize = function(){
 
         var app_router = new Router;
-
-
 
 
 
@@ -51,6 +64,7 @@ define([
             });
 
             homeView.render();
+
             Backbone.history.start();
 
         });
@@ -60,18 +74,11 @@ define([
 
         app_router.on('route:typRejestru', function(nazwaRejestru){
 
-
-            $('.container').on('click', 'tbody tr' ,function(){
-                app_router.navigate("/" + nazwaRejestru + "/" + $(this).attr("data-id"), true);
-            });
-
-            var showLista = new wpisyCollectionView({
-                nazwaRejestru: nazwaRejestru,
-                typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
-
-            });
+            this.events.typRejestru(nazwaRejestru, rejestryType, app_router);
 
         });
+
+
 
         app_router.on('route:dodajRejestr', function(){
 
@@ -80,18 +87,31 @@ define([
             });
 
         });
-       app_router.on('route:idWpisu', function(nazwaRejestru, idWpisu){
-           var showLista = new wpisyCollectionView({
-               nazwaRejestru: nazwaRejestru,
-               typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
 
-           });
+
+       app_router.on('route:idWpisu', function(nazwaRejestru, idWpisu){
+           if(!this.showLista){
+               this.events.typRejestru(nazwaRejestru, rejestryType, app_router)
+           };
+
+
+           if( $(".sidebar--right").hasClass( "hide")){
+               $(".sidebar--right").removeClass("hide").addClass("show");
+               $(".wrapper").removeClass("full-width").addClass("part-width");
+           }
+
+
            var formView1 = new formView({
                typRejestru : nazwaRejestru.replace(/_/g, " "),
                id : idWpisu
            });
 
         });
+
+
+
+
+
        app_router.on('route:dodajWpis', function(){
            var formView1 = new formView({
 
@@ -99,7 +119,7 @@ define([
 
         });
 
-
+        //Backbone.history.start();
 
     };
     return {

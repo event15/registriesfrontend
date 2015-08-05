@@ -1,3 +1,3 @@
 <% _.each(models, function(item) { %>
-<li class="typ-rejestru"><a href='#/<%= item.get("rejestr").replace(/ /g, "_") %>'><%= item.get("rejestr") %></a></li>
+<li class="typ-rejestru" data-rej='<%= item.get("rejestr").replace(/ /g, "_") %>'><a href='#/<%= item.get("rejestr").replace(/ /g, "_") %>'><%= item.get("rejestr") %></a></li>
 <% }); %>

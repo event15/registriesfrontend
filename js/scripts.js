@@ -47,6 +47,7 @@ $(document).on('click', 'a.dodaj-wpis, a.dodaj-rejestr, .container td', function
 });
 
 
+
 $(document).click(function(e) {
     if ( $(e.target).closest('.sidebar--right, a.dodaj-wpis, a.dodaj-rejestr, .container td:not(.quick-options)').length === 0 ) {
         if( $(".sidebar--right").hasClass( "show")){
@@ -59,10 +60,10 @@ $(document).click(function(e) {
 
 
 
-$(".wrapper__sidebar--left").on('click', 'li.typ-rejestru', function(){
-    $(".wrapper__sidebar--left li a").removeClass();
-    $("a", this).addClass("selected");
-});
+//$(".wrapper__sidebar--left").on('click', 'li.typ-rejestru', function(){
+//    $(".wrapper__sidebar--left li a").removeClass();
+//    $("a", this).addClass("selected");
+//});
 
 // <ikony sortowanie>*********************
 

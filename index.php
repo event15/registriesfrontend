@@ -41,6 +41,7 @@
 
     <input data-table="order-table" class="options wyszukaj light-table-filter" type="search" placeholder="Wyszukaj">
     <div class="container">
+        <div class="container__table">
         <!--<table id="tableData" class="footable order-table table">
         <thead>
             <tr>
@@ -96,8 +97,8 @@
         </tbody>
 
         </table>-->
-
-
+        </div>
+        <div class="pagination pagination-centered hide-if-no-paging"></div>
     </div>
 
     <div class="wrapper__sidebar--left">
@@ -197,7 +198,7 @@
 
 
 </section>
-<div class="pagination pagination-centered hide-if-no-paging"></div>
+
 
 <script src="js/scripts.js"></script>
 

@@ -4,37 +4,42 @@ define([
     'backbone',
     'views/wpisyCollectionView',
     'views/rejestryCollectionView',
-    'views/formView',
+    'views/dodajWpisView',
+    'views/dodajRejestrView',
+    'views/edytujWpisView',
     'collections/listaRejestryCollection',
     'models/tableHeadersModel',
     'libs/jquery/jquery.tablesorter.min'
-], function($, _, Backbone, wpisyCollectionView, rejestryCollectionView, formView, listaRejestryCollection, tableHeadersModel){
+], function($, _, Backbone, wpisyCollectionView, rejestryCollectionView, dodajWpisView, dodajRejestrView, edytujWpisView, listaRejestryCollection, tableHeadersModel){
 
     var Router = Backbone.Router.extend({
         routes: {
             ''                      : 'home',
             'dodajRejestr'                 : 'dodajRejestr',
-            ':typRejestru'          : 'typRejestru',
-            ':typRejestru/:page'    : 'idWpisu',
+            ':typRejestru/lista'          : 'typRejestru',
+            ':typRejestru/lista/:page'    : 'idWpisu',
             ':typRejestru/dodajWpis'           : 'dodajWpis',
             '*actions'              : 'defaultAction'
         },
         home : function () {
-            console.log("home");
+
         },
 
 
 
         events: {
             typRejestru : function(nazwaRejestru, rejestryType, router){
+                //console.log(nazwaRejestru);
                 $(".wrapper__sidebar--left li a").removeClass();
                 $("a", $(".wrapper__sidebar--left li[data-rej=" + nazwaRejestru + "]") ).addClass("selected");
 
-                $('.container').on('click', 'tbody tr' ,function(){
-                    router.navigate("/" + nazwaRejestru + "/" + $(this).attr("data-id"), true);
+                $(document).on('click', '.zaznacz-wszystkie' ,function(){
+
+                    router.navigate("/" + nazwaRejestru + "/dodajWpis");
                 });
                 //console.log();
                 router.showLista = new wpisyCollectionView({
+                    router : router,
                     nazwaRejestru: nazwaRejestru,
                     typRejestru : rejestryType[nazwaRejestru.replace(/_/g, " ")]
 
@@ -73,7 +78,7 @@ define([
 
 
         app_router.on('route:typRejestru', function(nazwaRejestru){
-
+            console.log(nazwaRejestru);
             this.events.typRejestru(nazwaRejestru, rejestryType, app_router);
 
         });
@@ -82,10 +87,7 @@ define([
 
         app_router.on('route:dodajRejestr', function(){
 
-            var formView1 = new formView({
-
-            });
-
+            var dodajRejestr = new dodajRejestrView({  });
         });
 
 
@@ -101,10 +103,12 @@ define([
            }
 
 
-           var formView1 = new formView({
-               typRejestru : nazwaRejestru.replace(/_/g, " "),
-               id : idWpisu
-           });
+           var edytujWpis = new edytujWpisView({});
+
+           //var formView1 = new formView({
+           //    typRejestru : nazwaRejestru.replace(/_/g, " "),
+           //    id : idWpisu
+           //});
 
         });
 
@@ -112,8 +116,11 @@ define([
 
 
 
-       app_router.on('route:dodajWpis', function(){
-           var formView1 = new formView({
+       app_router.on('route:dodajWpis', function(typRejestru){
+
+           console.log("dodaj wpis");
+           //alert("ASDdasdas");
+           var dodajWpis = new dodajWpisView({
 
            });
 

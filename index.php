@@ -102,7 +102,7 @@
     </div>
 
     <div class="wrapper__sidebar--left">
-        <a href="#/dodajRejestr" class="dodaj-rejestr">
+        <a href="#dodajRejestr" class="dodaj-rejestr">
             <i class="fa fa-plus"></i>Dodaj rejestr
         </a>
         <ul>

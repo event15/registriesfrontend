@@ -19,15 +19,6 @@ define([
     var App = {
         sort : function(){
 
-            //$("#sorter")
-            //.tablesorter({
-            //    sortInitialOrder: "desc",
-            //    headers : {
-            //        '.termin1' : { sortInitialOrder: "asc" },
-            //        '.termin2'   : { sortInitialOrder: "asc" }
-            //    }
-            //});
-
             $("#sorter").footable();
 
         },

@@ -12,16 +12,7 @@ define([
         el : '.wrapper__sidebar--left ul',
         //my_template : _.template(listaSamochodyTemplate),
         initialize: function () {
-            //var that = this;
-            //
-            //var onDataHandler = function(collection) {
-            //
-            //    //console.log(that.collection);
-            //    that.render();
-            //
-            //}
-            //this.collection = new listaRejestryCollection();
-            //this.collection.fetch({success : onDataHandler});
+
 
         },
 

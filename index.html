@@ -55,36 +55,16 @@
 
 <script>
     $(document)
-            .on("click", ".add", function () {
-                if ($(".add_registries").hasClass("hide"))
-                {
-                    $(".add_registries").removeClass("hide").addClass("show");
-                    $(".add.register").css("background-color", "#C45B1A");
-                }
-                else {
-                    $(".add_registries").removeClass("show").addClass("hide");
-                    $(".add.register").css("background-color", "#f16c1e");
-                }
-            })
-
             .on("click", ".addpos", function () {
                 $(".add_position")
                         .toggle(120, function () {
                             $(".add_position").css("display: none");
                         })
-            })
-
-            .on("dblclick", "td", function () {
-                var val = $(this);
-                if (val.attr('contentEditable') === true)
-                {
-                    val.attr('contentEditable', false);
-                }
-                else {
-                    val.attr('contentEditable', true);
-                    val.focus();
-                }
             });
+
 </script>
 </body>
 </html>
+
+GUI:
+

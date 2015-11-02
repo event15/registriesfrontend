@@ -3,9 +3,12 @@
 
     angular
         .module("registriesFrontend")
-        .controller("PositionListController", ["positionResource", PositionListController]);
+        .controller("PositionListController",
+                   ["positionResource",
+                       PositionListController]);
 
-    function PositionListController(positionResource) {
+    function PositionListController(positionResource)
+    {
         var vm = this;
 
         positionResource.query(function(data) {

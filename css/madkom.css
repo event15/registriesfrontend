@@ -111,6 +111,9 @@ a {
   min-height: 20%;
   z-index: 1; }
 
+.add_position.hide {
+  display: none; }
+
 .position_form {
   padding-top: 23.3px; }
 

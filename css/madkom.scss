@@ -94,12 +94,15 @@ a{
 }
 
 .add_position {
-  //display: none;
   text-align: center;
   background-color: $rightPanelColor;
   width: 100%;
   min-height: 20%;
   z-index: 1;
+}
+
+.add_position.hide {
+  display:none;
 }
 
 .position_form {

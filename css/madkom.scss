@@ -94,7 +94,7 @@ a{
 }
 
 .add_position {
-  display: none;
+  //display: none;
   text-align: center;
   background-color: $rightPanelColor;
   width: 100%;
@@ -107,7 +107,7 @@ a{
 }
 
 .position {
-  margin: 23.3px;
+    margin: 23.3px;
 }
 
 
@@ -256,7 +256,7 @@ fieldset[name="registry"] {
     box-sizing: border-box;
     padding: .1em;
     width: 155px;
-    height: calc(93px / 2);
+    height: calc(93px / 4);
     border: 1px solid $searchFrameColor;
     //@include border-radius(10px);
     outline: none;
@@ -271,12 +271,8 @@ fieldset[name="position"] {
     font: $basic;
     box-sizing: border-box;
     width: 155px;
-    height: calc(93px / 2);
+    height: calc(93px / 4);
     border: 1px solid $searchFrameColor;
-    //@include border-radius(10px);
-    //-webkit-border-radius: 0 10px 10px 0;
-    //-moz-border-radius: 0 10px 10px 0;
-    //border-radius: 0 10px 10px 0;
     outline: none;
     @include font-size(16);
     text-align: center;
@@ -294,9 +290,6 @@ fieldset[name="position"] {
     border: 1px solid $searchFrameColor;
     vertical-align: middle;
     font: $basic;
-    /*-webkit-border-radius: 0 10px 10px 0;
-    -moz-border-radius: 0 10px 10px 0;
-    border-radius: 0 10px 10px 0;*/
     @include font-size(16);
     outline: none;
   }
@@ -316,7 +309,7 @@ label  {
   margin: .1em;
   padding: 0;
   display: inline-block;
-  line-height:calc(93px / 2);
+  line-height:calc(93px / 4);
   background-color: $searchFrameColor;
  // @include border-radius(10px);
   color: $leftPanelColor;

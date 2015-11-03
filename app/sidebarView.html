@@ -4,36 +4,12 @@
 <div class="show_registries" style="position: fixed;"></div>
 
 <article class="show_registries">
-    <div ui-view></div>
-</article>
-
-<article class="add_registries" ng-class="showBar ? 'show' : 'hide' " ui-view="addRegistryView">
     <header>
-        <h2 class="title">DODAWANIE REJESTRU</h2>
+        <button class="add register" ng-init="showBar=false" ng-click="showBar = !showBar" ui-sref="main.registry"><i>+</i> DODAJ REJESTR</button>
     </header>
-
-    <section>
-        <!-- Panel to add new registry -->
-        <div>
-            <h2 class="hide">Dodaj pozycję w rejestrze</h2>
-            <form action="#">
-                <fieldset name="registry">
-                    <div>
-                        <input type="text" placeholder="Wpisz nazwę rejestru" name="name" id="name" />
-                    </div>
-
-                    <br />
-
-                    <div>
-                        <select id="type" name="type[]">
-                            <option value="volvo" selected="selected" disabled>Wybierz typ rejestru</option>
-                            <option ng-repeat="registry in vm.registries" value="{{ registry.type }}">{{
-                                registry.typeName }}</option>
-                        </select>
-                    </div>
-                </fieldset>
-                <button type="submit" class="add" ui-sref="home">ZAPISZ</button>
-            </form>
-        </div>
-    </section>
+    <div ui-view="RegistryList"></div>
 </article>
+
+<div ui-view="RegistryAdd"></div>
+
+

@@ -7,7 +7,7 @@
                 ["$resource",
                  positionResource]);
 
-    function positionResource($resource) {
-        return $resource("/madkom/registries/web/rejestry/1/pozycje/");
+    function positionResource($resource, registryId) {
+        return $resource("/registries/web/rejestry/:registryId/pozycje");
     }
 })();

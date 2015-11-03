@@ -8,6 +8,6 @@
                  registryResource]);
 
     function registryResource($resource) {
-        return $resource("/madkom/registries/web/rejestry/");
+        return $resource("/registries/web/rejestry/");
     }
 })();

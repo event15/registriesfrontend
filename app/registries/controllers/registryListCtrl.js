@@ -9,10 +9,10 @@
 
     function RegistryListController(registryResource)
     {
-        var vmm = this;
+        var vm = this;
 
         registryResource.query(function (data) {
-            vmm.registries = data;
+            vm.registries = data;
         });
     }
 }());

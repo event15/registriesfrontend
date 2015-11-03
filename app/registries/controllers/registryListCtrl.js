@@ -3,13 +3,16 @@
 
     angular
         .module("registriesFrontend")
-        .controller("RegistryListController", ["registryResource", RegistryListController]);
+        .controller("RegistryListController",
+                   ["registryResource",
+                       RegistryListController]);
 
-    function RegistryListController(registryResource) {
-        var vm = this;
+    function RegistryListController(registryResource)
+    {
+        var vmm = this;
 
         registryResource.query(function (data) {
-            vm.registries = data;
+            vmm.registries = data;
         });
     }
 }());

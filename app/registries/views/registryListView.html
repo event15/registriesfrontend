@@ -1,0 +1,11 @@
+<header>
+    <button class="add register" ng-init="showBar=false" ng-click="showBar = !showBar" ui-sref="main.registry"><i>+</i> DODAJ REJESTR</button>
+</header>
+<section ng-repeat="registry in vmm.registries">
+    <h2 class="hide">Lista rejestrów</h2>
+    <ul class="list">
+        <li class="{{ registry.selected }}" >
+            <a href="../web/rejestry/{{ registry.id }}">{{ registry.name }}</a>
+        </li>
+    </ul>
+</section>

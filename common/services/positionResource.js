@@ -8,6 +8,6 @@
                  positionResource]);
 
     function positionResource($resource) {
-        return $resource("/registries/web/rejestry/1/pozycje/");
+        return $resource("/madkom/registries/web/rejestry/1/pozycje/");
     }
 })();

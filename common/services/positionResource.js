@@ -7,7 +7,7 @@
                 ["$resource",
                  positionResource]);
 
-    function positionResource($resource, registryId) {
+    function positionResource($resource) {
         return $resource("/registries/web/rejestry/:registryId/pozycje");
     }
 })();

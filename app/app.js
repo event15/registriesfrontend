@@ -48,7 +48,7 @@
 
                         position: function (positionResource, $stateParams) {
                             var registryId = $stateParams.registryId;
-                            return positionResource.get({ registryId: registryId }).$promise;
+                            return positionResource.get({ registryId: registryId });
                         }
                     }
                 })

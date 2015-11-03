@@ -7,12 +7,12 @@
                    ["positionResource",
                        PositionListController]);
 
-    function PositionListController(positionResource, registryId)
+    function PositionListController(positionResource)
     {
         var vm = this;
 
         positionResource.query(function(data) {
             vm.positions = data;
-        }, registryId);
+        });
     }
 }());

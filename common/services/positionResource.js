@@ -4,10 +4,10 @@
     angular
         .module("common.services")
         .factory("positionResource",
-                ["$resource",
+                ["$resource", "baseUrl",
                  positionResource]);
 
-    function positionResource($resource) {
-        return $resource("/registries/web/rejestry/:registryId/pozycje");
+    function positionResource($resource, baseUrl) {
+        return $resource(baseUrl + "/rejestry/:registryId/pozycje");
     }
 })();

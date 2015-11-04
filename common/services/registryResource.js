@@ -4,10 +4,10 @@
     angular
         .module("common.services")
         .factory("registryResource",
-                ["$resource",
+                ["$resource", "baseUrl",
                  registryResource]);
 
-    function registryResource($resource) {
-        return $resource("/registries/web/rejestry/");
+    function registryResource($resource, baseUrl) {
+        return $resource(baseUrl + "/rejestry/:registryId");
     }
 })();

@@ -1,7 +1,7 @@
 <section ng-repeat="registry in vm.registries">
     <h2 class="hide">Lista rejestrów</h2>
     <ul class="list">
-        <li class="{{ registry.selected }}" >
+        <li ui-sref-active="selected" >
             <a ui-sref="main.registry.positions({ registryId: registry.id })">{{ registry.name }}</a>
         </li>
     </ul>

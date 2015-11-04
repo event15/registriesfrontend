@@ -4,10 +4,10 @@
     angular
         .module("registriesFrontend")
         .controller("RegistryListController",
-                   ["registryResource",
+                   ["registryResource", "$state",
                        RegistryListController]);
 
-    function RegistryListController(registryResource)
+    function RegistryListController(registryResource, $state)
     {
         var vm = this;
 

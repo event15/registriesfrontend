@@ -6,8 +6,7 @@
                ["common.services",
                 "ui.router"])
 
-        .constant("baseUrl", "/registries/web");
-
+        .constant("baseUrl", "/madkom/registries/web");
 
 
     app.config(["$stateProvider", "$urlRouterProvider",
@@ -40,14 +39,14 @@
 
                         position: function (positionResource) {
                             var registryId = 1;
+
                             return positionResource.query({ registryId: registryId });
                         }
                     }
                 })
 
                 .state("main.registry", {
-                    url: "rejestry",
-                    abstract: true
+                    url: "rejestry"
                 })
 
                 .state("main.registry.add", {
@@ -80,7 +79,7 @@
 
                                     function (response) {
                                         // no code needed for success
-                                        console.log("OK");
+                                        console.log("Listę pozycji pobrano pomyślnie.");
                                     },
 
                                     function(response) {
@@ -90,7 +89,8 @@
                                         } else {
                                             console.log(response.statusText);
                                         }
-                                    });
+                                    }
+                            );
                         }
                     }
                 })
